@@ -45,7 +45,7 @@ To ensure fair and competitive auctions, the system employs a unique group mecha
 4. **Access the Application**:
    - Navigate to `http://localhost/bidding/index.php` to view the public portal.
 
-## 🔐 Default Admin Credentials
+🔐 Default Admin Credentials
 
 Upon running `db_setup.php`, a default admin account is created:
 - **Email**: `admin@police.gov`
@@ -53,7 +53,7 @@ Upon running `db_setup.php`, a default admin account is created:
 
 *(Note: It is highly recommended to change these credentials in a production environment.)*
 
-## 📁 Project Structure
+ 📁 Project Structure
 
 - `/admin/` - Administrative dashboard and vehicle management scripts.
 - `/assets/` - CSS styles, JavaScript files, and image assets.
