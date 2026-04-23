@@ -66,7 +66,7 @@ while ($row = mysqli_fetch_assoc($bids_query)) {
                         <?php elseif($v['status'] == 'approved' && !$v['is_final_winner']): ?>
                             <span class="badge" style="background:#444;">Lost</span>
                         <?php elseif($v['status'] == 'active' && $v['is_winning']): ?>
-                            <span style="color:#64ffda;">Currently Winning</span>
+                            <span style="color:var(--accent-gold);">Currently Winning</span>
                         <?php elseif($v['status'] == 'active' && !$v['is_winning']): ?>
                             <span style="color:var(--danger);">Outbid</span>
                         <?php else: ?>

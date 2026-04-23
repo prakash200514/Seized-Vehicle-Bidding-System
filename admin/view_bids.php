@@ -61,7 +61,7 @@ $is_approved = $vehicle['status'] == 'approved';
             ?>
             <tr style="<?= ($rank == 1 && $is_closed && !$is_approved) ? 'background:rgba(100,255,218,0.1);' : ($is_approved && $rank == 1 ? 'background:rgba(0, 200, 150, 0.2);' : '') ?>">
                 <td>#<?= $rank ?></td>
-                <td style="font-weight:bold; color:#64ffda;">$<?= number_format($b['bid_amount'], 2) ?></td>
+                <td style="font-weight:bold; color:var(--accent-gold);">$<?= number_format($b['bid_amount'], 2) ?></td>
                 <td><?= htmlspecialchars($b['name']) ?></td>
                 <td><?= htmlspecialchars($b['email']) ?></td>
                 <td><?= $b['bid_time'] ?></td>

@@ -33,7 +33,7 @@ $active_auctions = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as co
         </div>
         <div class="glass-panel" style="padding:20px; text-align:center;">
             <h3>Total Bids Placed</h3>
-            <p style="font-size:2.5rem; font-weight:bold; color:#64ffda;"><?= $bids_count ?></p>
+            <p style="font-size:2.5rem; font-weight:bold; color:var(--accent-gold);"><?= $bids_count ?></p>
         </div>
     </div>
 </div>

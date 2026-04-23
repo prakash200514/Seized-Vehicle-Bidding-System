@@ -11,7 +11,7 @@ $vehicles = mysqli_query($conn, "SELECT * FROM vehicles WHERE status IN ('active
 <?php include 'includes/header.php'; ?>
 
 <div class="glass-panel" style="padding:40px; text-align:center; margin-bottom: 40px;">
-    <h1 style="font-size:2.5rem; color:#64ffda;">Police Seized Vehicle Bidding System</h1>
+    <h1 style="font-size:2.5rem; color:var(--accent-gold);">Police Seized Vehicle Bidding System</h1>
     <p style="color:var(--text-secondary); font-size:1.1rem;">Transparent and secure auctions for seized department assets.</p>
 </div>
 
@@ -20,18 +20,20 @@ $vehicles = mysqli_query($conn, "SELECT * FROM vehicles WHERE status IN ('active
     <?php while($v = mysqli_fetch_assoc($vehicles)): ?>
         <div class="glass-panel vehicle-card">
             <img src="<?= htmlspecialchars($v['image_path']) ?>" alt="Vehicle Image">
-            <h3 style="color:#64ffda;"><?= htmlspecialchars($v['vehicle_name']) ?></h3>
-            <div class="vehicle-details">
-                <p><strong>Model/Year:</strong> <?= htmlspecialchars($v['model']) ?></p>
-                <p><strong>Seized Location:</strong> <?= htmlspecialchars($v['seized_location']) ?></p>
-                <p><strong>Base Price:</strong> $<?= number_format($v['base_price'], 2) ?></p>
-                <?php if($v['status'] == 'active'): ?>
-                    <p style="margin-top:10px;"><span class="badge bg-success">ACTIVE</span></p>
-                <?php else: ?>
-                    <p style="margin-top:10px;"><span class="badge" style="background:#8892B0; color:#020c1b;">UPCOMING</span></p>
-                <?php endif; ?>
+            <div class="vehicle-card-content">
+                <h3><?= htmlspecialchars($v['vehicle_name']) ?></h3>
+                <div class="vehicle-details">
+                    <p><strong>Model/Year:</strong> <?= htmlspecialchars($v['model']) ?></p>
+                    <p><strong>Seized Location:</strong> <?= htmlspecialchars($v['seized_location']) ?></p>
+                    <p><strong>Base Price:</strong> $<?= number_format($v['base_price'], 2) ?></p>
+                    <?php if($v['status'] == 'active'): ?>
+                        <p style="margin-top:15px;"><span class="badge bg-success">ACTIVE</span></p>
+                    <?php else: ?>
+                        <p style="margin-top:15px;"><span class="badge" style="background:rgba(255,255,255,0.05); color:var(--text-secondary); border: 1px solid rgba(255,255,255,0.1);">UPCOMING</span></p>
+                    <?php endif; ?>
+                </div>
+                <a href="vehicle_details.php?id=<?= $v['vehicle_id'] ?>" class="btn btn-primary">View Details & Bid</a>
             </div>
-            <a href="vehicle_details.php?id=<?= $v['vehicle_id'] ?>" class="btn btn-primary">View Details & Bid</a>
         </div>
     <?php endwhile; ?>
     <?php if(mysqli_num_rows($vehicles) == 0): ?>

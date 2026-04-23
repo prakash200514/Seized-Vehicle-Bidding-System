@@ -55,7 +55,7 @@ $highest_bid = $highest_bid ?: 0.00;
                 <?php while($b = mysqli_fetch_assoc($bids)): ?>
                     <tr>
                         <td><?= htmlspecialchars($b['name']) ?></td>
-                        <td style="color:#64ffda; font-weight:bold;">$<?= number_format($b['bid_amount'], 2) ?></td>
+                        <td style="color:var(--accent-gold); font-weight:bold;">$<?= number_format($b['bid_amount'], 2) ?></td>
                         <td style="color:var(--text-secondary);"><?= date('H:i m/d', strtotime($b['bid_time'])) ?></td>
                     </tr>
                 <?php endwhile; ?>
@@ -67,7 +67,7 @@ $highest_bid = $highest_bid ?: 0.00;
     </div>
 
     <div class="bid-info glass-panel" style="padding:40px;">
-        <h2 style="font-size:2rem; color:#64ffda;"><?= htmlspecialchars($vehicle['vehicle_name']) ?></h2>
+        <h2 style="font-size:2rem; color:var(--accent-gold);"><?= htmlspecialchars($vehicle['vehicle_name']) ?></h2>
         <p style="color:var(--text-secondary); margin-bottom:20px;">Model: <?= htmlspecialchars($vehicle['model']) ?> | Seized At: <?= htmlspecialchars($vehicle['seized_location']) ?></p>
         
         <div style="display:flex; justify-content:space-between; margin-bottom:30px; padding:20px; background:rgba(0,0,0,0.2); border-radius:8px;">
@@ -77,7 +77,7 @@ $highest_bid = $highest_bid ?: 0.00;
             </div>
             <div style="text-align:right;">
                 <p style="color:var(--text-secondary);">Current Highest Bid</p>
-                <h3 style="font-size:1.8rem; color:#64ffda;">$<?= number_format($highest_bid, 2) ?></h3>
+                <h3 style="font-size:1.8rem; color:var(--accent-gold);">$<?= number_format($highest_bid, 2) ?></h3>
             </div>
         </div>
 
