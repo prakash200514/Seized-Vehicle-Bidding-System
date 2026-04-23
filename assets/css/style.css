@@ -1,17 +1,17 @@
 :root {
-  --bg-color: #f8f9fa;
-  --panel-bg: #ffffff;
-  --panel-border: #e2e4e8;
+  --bg-color: #0b0d10;
+  --panel-bg: rgba(25, 28, 35, 0.7);
+  --panel-border: rgba(255, 255, 255, 0.08);
   
-  --text-primary: #1a1b1e;
-  --text-secondary: #5f6368;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
   
-  --accent-gold: #b38b4d;
-  --accent-gold-hover: #9c7841;
-  --accent-blue: #0f2537;
+  --accent-gold: #d4af37;
+  --accent-gold-hover: #f1c40f;
+  --accent-blue: #60a5fa;
   
-  --danger: #d93025;
-  --success: #1e8e3e;
+  --danger: #ef4444;
+  --success: #22c55e;
   
   --font-body: 'Montserrat', sans-serif;
   --font-heading: 'Playfair Display', serif;
@@ -64,9 +64,11 @@ a:hover {
 /* Elegant Solid Container Utility */
 .glass-panel {
   background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--panel-border);
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Layout */
@@ -79,12 +81,14 @@ a:hover {
 
 header {
   padding: 25px 0;
-  background: #ffffff;
+  background: rgba(11, 13, 16, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--panel-border);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .header-inner {
@@ -144,7 +148,7 @@ nav a:hover, nav a.active {
   text-align: center;
 }
 .btn:hover {
-  background: #f1f3f4;
+  background: rgba(255,255,255,0.05);
   text-decoration: none;
 }
 .btn-primary { 
@@ -182,18 +186,18 @@ nav a:hover, nav a.active {
 .form-control {
   width: 100%;
   padding: 14px 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background: rgba(15, 17, 21, 0.8);
+  border: 1px solid rgba(255,255,255,0.1);
   color: var(--text-primary);
   font-family: var(--font-body);
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   font-size: 0.95rem;
 }
 .form-control:focus {
   outline: none;
   border-color: var(--accent-gold);
-  box-shadow: 0 0 0 3px rgba(179, 139, 77, 0.1);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
 /* Grid layout for vehicles */
@@ -209,12 +213,16 @@ nav a:hover, nav a.active {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border-radius: 8px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px);
 }
 .vehicle-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  border-color: rgba(212, 175, 55, 0.4);
 }
 .vehicle-card img {
   width: 100%;
@@ -255,12 +263,14 @@ nav a:hover, nav a.active {
 /* Tables */
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin-top: 30px;
-  background: #ffffff;
-  border-radius: 4px;
+  background: var(--panel-bg);
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px);
 }
 th, td {
   padding: 16px 20px;
@@ -268,7 +278,7 @@ th, td {
   border-bottom: 1px solid var(--panel-border);
 }
 th {
-  background: #f8f9fa;
+  background: rgba(0,0,0,0.2);
   color: var(--text-secondary);
   font-weight: 600;
   text-transform: uppercase;
@@ -276,7 +286,7 @@ th {
   letter-spacing: 1px;
 }
 tr:hover {
-  background: #fdfdfd;
+  background: rgba(255,255,255,0.03);
 }
 
 .alert {
@@ -310,9 +320,9 @@ tr:hover {
   gap: 15px;
 }
 .time-box {
-  background: #f8f9fa;
+  background: rgba(0,0,0,0.3);
   padding: 15px 12px;
-  border-radius: 4px;
+  border-radius: 8px;
   text-align: center;
   min-width: 80px;
   border: 1px solid var(--panel-border);
