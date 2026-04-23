@@ -5,7 +5,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') { header("Loc
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vehicle_name = mysqli_real_escape_string($conn, $_POST['vehicle_name']);
     $model = mysqli_real_escape_string($conn, $_POST['model']);
-    $seized_location = mysqli_real_escape_string($conn, $_POST['seized_location']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $registration_no = mysqli_real_escape_string($conn, $_POST['registration_no']);
+    $insurance_status = mysqli_real_escape_string($conn, $_POST['insurance_status']);
+    $rc_book_status = mysqli_real_escape_string($conn, $_POST['rc_book_status']);
+    $country = mysqli_real_escape_string($conn, $_POST['country']);
+    $state = mysqli_real_escape_string($conn, $_POST['state']);
+    $district = mysqli_real_escape_string($conn, $_POST['district']);
     $base_price = $_POST['base_price'];
     $auction_start = $_POST['auction_start'];
     $auction_end = $_POST['auction_end'];
@@ -23,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $sql = "INSERT INTO vehicles (vehicle_name, model, seized_location, base_price, auction_start, auction_end, image_path, status) 
-            VALUES ('$vehicle_name', '$model', '$seized_location', '$base_price', '$auction_start', '$auction_end', '$image_path', '$status')";
+    $sql = "INSERT INTO vehicles (vehicle_name, model, description, registration_no, insurance_status, rc_book_status, country, state, district, base_price, auction_start, auction_end, image_path, status) 
+            VALUES ('$vehicle_name', '$model', '$description', '$registration_no', '$insurance_status', '$rc_book_status', '$country', '$state', '$district', '$base_price', '$auction_start', '$auction_end', '$image_path', '$status')";
     
     if (mysqli_query($conn, $sql)) {
         header("Location: manage_vehicles.php?added=true");
@@ -53,12 +59,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="text" name="model" class="form-control" required placeholder="e.g. 2021">
         </div>
         <div class="form-group">
-            <label>Seized Location</label>
-            <input type="text" name="seized_location" class="form-control" required placeholder="Downtown District">
+            <label>Description</label>
+            <textarea name="description" class="form-control" rows="3" required placeholder="Detailed notes about vehicle condition..."></textarea>
         </div>
-        <div class="form-group">
-            <label>Base Price ($)</label>
-            <input type="number" step="0.01" name="base_price" class="form-control" required>
+        <div style="display:flex; gap:20px;">
+            <div class="form-group" style="flex:1">
+                <label>Registration No.</label>
+                <input type="text" name="registration_no" class="form-control" required placeholder="e.g. MH 04 AB 1234">
+            </div>
+            <div class="form-group" style="flex:1">
+                <label>Base Price (₹)</label>
+                <input type="number" step="0.01" name="base_price" class="form-control" required>
+            </div>
+        </div>
+        <div style="display:flex; gap:20px;">
+            <div class="form-group" style="flex:1">
+                <label>Insurance Status</label>
+                <select name="insurance_status" class="form-control" required>
+                    <option value="none">None</option>
+                    <option value="valid">Valid</option>
+                    <option value="expired">Expired</option>
+                </select>
+            </div>
+            <div class="form-group" style="flex:1">
+                <label>RC Book</label>
+                <select name="rc_book_status" class="form-control" required>
+                    <option value="missing">Missing</option>
+                    <option value="available">Available</option>
+                </select>
+            </div>
+        </div>
+        <div style="display:flex; gap:20px;">
+            <div class="form-group" style="flex:1">
+                <label>Country</label>
+                <input type="text" name="country" class="form-control" required placeholder="India">
+            </div>
+            <div class="form-group" style="flex:1">
+                <label>State</label>
+                <input type="text" name="state" class="form-control" required placeholder="Maharashtra">
+            </div>
+            <div class="form-group" style="flex:1">
+                <label>District</label>
+                <input type="text" name="district" class="form-control" required placeholder="Mumbai">
+            </div>
         </div>
         <div style="display:flex; gap:20px;">
             <div class="form-group" style="flex:1">

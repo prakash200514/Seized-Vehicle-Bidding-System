@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['bid_amount']) && $use
         $min_required = $current_highest ? $current_highest + 50 : $vehicle_base; // Minimum $50 increment
         
         if ($bid_amt < $min_required) {
-            $error = "Bid must be at least $" . number_format($min_required, 2);
+            $error = "Bid must be at least ₹" . number_format($min_required, 2);
         } else {
             mysqli_query($conn, "INSERT INTO bids (user_id, vehicle_id, bid_amount) VALUES ($user_id, $v_id, $bid_amt)");
             $success = "Bid placed successfully!";
@@ -55,7 +55,7 @@ $highest_bid = $highest_bid ?: 0.00;
                 <?php while($b = mysqli_fetch_assoc($bids)): ?>
                     <tr>
                         <td><?= htmlspecialchars($b['name']) ?></td>
-                        <td style="color:var(--accent-gold); font-weight:bold;">$<?= number_format($b['bid_amount'], 2) ?></td>
+                        <td style="color:var(--accent-gold); font-weight:bold;">₹<?= number_format($b['bid_amount'], 2) ?></td>
                         <td style="color:var(--text-secondary);"><?= date('H:i m/d', strtotime($b['bid_time'])) ?></td>
                     </tr>
                 <?php endwhile; ?>
@@ -68,16 +68,22 @@ $highest_bid = $highest_bid ?: 0.00;
 
     <div class="bid-info glass-panel" style="padding:40px;">
         <h2 style="font-size:2rem; color:var(--accent-gold);"><?= htmlspecialchars($vehicle['vehicle_name']) ?></h2>
-        <p style="color:var(--text-secondary); margin-bottom:20px;">Model: <?= htmlspecialchars($vehicle['model']) ?> | Seized At: <?= htmlspecialchars($vehicle['seized_location']) ?></p>
+        <p style="color:var(--text-secondary); margin-bottom:20px; line-height: 1.8;">
+            <strong>Description:</strong> <?= nl2br(htmlspecialchars($vehicle['description'])) ?><br>
+            <strong>Registration No:</strong> <?= htmlspecialchars($vehicle['registration_no']) ?> | 
+            <strong>Insurance:</strong> <?= ucfirst(htmlspecialchars($vehicle['insurance_status'])) ?> | 
+            <strong>RC Book:</strong> <?= ucfirst(htmlspecialchars($vehicle['rc_book_status'])) ?><br>
+            <strong>Location:</strong> <?= htmlspecialchars($vehicle['district']) ?>, <?= htmlspecialchars($vehicle['state']) ?>, <?= htmlspecialchars($vehicle['country']) ?>
+        </p>
         
         <div style="display:flex; justify-content:space-between; margin-bottom:30px; padding:20px; background:#f8f9fa; border:1px solid var(--panel-border); border-radius:4px;">
             <div>
                 <p style="color:var(--text-secondary);">Base Price</p>
-                <h3 style="font-size:1.5rem;">$<?= number_format($vehicle['base_price'], 2) ?></h3>
+                <h3 style="font-size:1.5rem;">₹<?= number_format($vehicle['base_price'], 2) ?></h3>
             </div>
             <div style="text-align:right;">
                 <p style="color:var(--text-secondary);">Current Highest Bid</p>
-                <h3 style="font-size:1.8rem; color:var(--accent-gold);">$<?= number_format($highest_bid, 2) ?></h3>
+                <h3 style="font-size:1.8rem; color:var(--accent-gold);">₹<?= number_format($highest_bid, 2) ?></h3>
             </div>
         </div>
 
@@ -95,8 +101,8 @@ $highest_bid = $highest_bid ?: 0.00;
         <?php if($vehicle['status'] == 'active' && $user_id): ?>
             <form method="POST" action="">
                 <div class="form-group">
-                    <label>Your Bid Amount ($)</label>
-                    <input type="number" step="0.01" name="bid_amount" class="form-control" style="font-size:1.5rem; padding:15px;" required min="<?= $highest_bid ? $highest_bid + 50 : $vehicle['base_price'] ?>" placeholder="Minimum: $<?= number_format($highest_bid ? $highest_bid + 50 : $vehicle['base_price'], 2) ?>">
+                    <label>Your Bid Amount (₹)</label>
+                    <input type="number" step="0.01" name="bid_amount" class="form-control" style="font-size:1.5rem; padding:15px;" required min="<?= $highest_bid ? $highest_bid + 50 : $vehicle['base_price'] ?>" placeholder="Minimum: ₹<?= number_format($highest_bid ? $highest_bid + 50 : $vehicle['base_price'], 2) ?>">
                 </div>
                 <button type="submit" class="btn btn-primary" style="width:100%; font-size:1.2rem; padding:15px;">PLACE BID</button>
             </form>

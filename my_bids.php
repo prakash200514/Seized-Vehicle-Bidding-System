@@ -55,8 +55,8 @@ while ($row = mysqli_fetch_assoc($bids_query)) {
             <?php foreach($vehicles_data as $v): ?>
                 <tr style="<?= $v['is_final_winner'] ? 'background:#e6f4ea;' : '' ?>">
                     <td><?= htmlspecialchars($v['vehicle_name']) ?></td>
-                    <td style="font-weight:bold;">$<?= number_format($v['my_highest_bid'], 2) ?></td>
-                    <td>$<?= number_format($v['global_highest'], 2) ?></td>
+                    <td style="font-weight:bold;">₹<?= number_format($v['my_highest_bid'], 2) ?></td>
+                    <td>₹<?= number_format($v['global_highest'], 2) ?></td>
                     <td>
                         <span class="badge <?= $v['status']=='active'?'bg-success':'bg-danger'?>"><?= strtoupper($v['status']) ?></span>
                     </td>

@@ -29,12 +29,21 @@ $sql = "CREATE TABLE IF NOT EXISTS users (
 )";
 mysqli_query($conn, $sql);
 
+// First drop dependent tables and vehicles (dev mode reset for vehicles)
+mysqli_query($conn, "DROP TABLE IF EXISTS auction_result, bids, vehicles");
+
 // Create Vehicles table
 $sql = "CREATE TABLE IF NOT EXISTS vehicles (
     vehicle_id INT AUTO_INCREMENT PRIMARY KEY,
     vehicle_name VARCHAR(150) NOT NULL,
     model VARCHAR(100) NOT NULL,
-    seized_location VARCHAR(200) NOT NULL,
+    description TEXT,
+    registration_no VARCHAR(50),
+    insurance_status ENUM('valid', 'expired', 'none') DEFAULT 'none',
+    rc_book_status ENUM('available', 'missing') DEFAULT 'missing',
+    country VARCHAR(100) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    district VARCHAR(100) NOT NULL,
     base_price DECIMAL(10,2) NOT NULL,
     auction_start DATETIME NOT NULL,
     auction_end DATETIME NOT NULL,

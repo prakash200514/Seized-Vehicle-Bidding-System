@@ -24,8 +24,8 @@ $vehicles = mysqli_query($conn, "SELECT * FROM vehicles WHERE status IN ('active
                 <h3><?= htmlspecialchars($v['vehicle_name']) ?></h3>
                 <div class="vehicle-details">
                     <p><strong>Model/Year:</strong> <?= htmlspecialchars($v['model']) ?></p>
-                    <p><strong>Seized Location:</strong> <?= htmlspecialchars($v['seized_location']) ?></p>
-                    <p><strong>Base Price:</strong> $<?= number_format($v['base_price'], 2) ?></p>
+                    <p><strong>Location:</strong> <?= htmlspecialchars($v['district']) ?>, <?= htmlspecialchars($v['state']) ?></p>
+                    <p><strong>Base Price:</strong> ₹<?= number_format($v['base_price'], 2) ?></p>
                     <?php if($v['status'] == 'active'): ?>
                         <p style="margin-top:15px;"><span class="badge bg-success">ACTIVE</span></p>
                     <?php else: ?>

@@ -37,7 +37,7 @@ $vehicles = mysqli_query($conn, "SELECT * FROM vehicles ORDER BY auction_start D
             <tr>
                 <td>#<?= $v['vehicle_id'] ?></td>
                 <td><?= htmlspecialchars($v['vehicle_name']) ?> (<?= htmlspecialchars($v['model']) ?>)</td>
-                <td>$<?= number_format($v['base_price'], 2) ?></td>
+                <td>₹<?= number_format($v['base_price'], 2) ?></td>
                 <td><?= $v['auction_start'] ?></td>
                 <td><?= $v['auction_end'] ?></td>
                 <td>
