@@ -17,10 +17,19 @@
   --font-heading: 'Playfair Display', serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@keyframes smoothFadeIn {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 body {
@@ -28,6 +37,7 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
+  animation: smoothFadeIn 0.4s ease-out forwards;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
