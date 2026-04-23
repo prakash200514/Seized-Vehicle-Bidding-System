@@ -6,16 +6,16 @@ A highly secure, institutional-grade web application designed for police departm
 
 🌟 Key Features
 
-### 🏛️ Authorized Organization Theme
+🏛️ Authorized Organization Theme
 The UI is built with a high-trust, official aesthetic suitable for government portals. It features a clean Navy Blue and White color scheme, structural panels, and utilitarian typography (Inter) to project authority and ensure maximum accessibility.
 
-### 👥 Group-Based Bidding System
+👥 Group-Based Bidding System
 To ensure fair and competitive auctions, the system employs a unique group mechanism:
 - Users must **"Join an Auction Group"** before they can participate in bidding for a specific vehicle.
 - Bidding is strictly **locked** until the group reaches a minimum threshold (more than 5 members).
 - This ensures sufficient interest before an auction officially commences.
 
-### 👮 Admin Dashboard & Controls
+👮 Admin Dashboard & Controls
 - **Vehicle Management**: Admins can seamlessly add seized vehicles, including images, descriptions, base prices, and legal document status (Insurance & RC Book).
 - **Auction Lifecycle**: Set precise start and end times for each auction.
 - **Role Security**: Dedicated admin accounts have exclusive access to management features and cannot participate in public bidding.
