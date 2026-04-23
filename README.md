@@ -1,8 +1,10 @@
 # 🚔 Police Seized Vehicle Bidding System
 
+🚔 Police Seized Vehicle Bidding System
+
 A highly secure, institutional-grade web application designed for police departments and authorized government organizations to manage and auction seized vehicles. This system provides a transparent, structured, and user-friendly platform for public bidding while giving administrators complete control over the auction lifecycle.
 
-## 🌟 Key Features
+🌟 Key Features
 
 ### 🏛️ Authorized Organization Theme
 The UI is built with a high-trust, official aesthetic suitable for government portals. It features a clean Navy Blue and White color scheme, structural panels, and utilitarian typography (Inter) to project authority and ensure maximum accessibility.
