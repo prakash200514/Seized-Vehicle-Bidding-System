@@ -105,7 +105,7 @@ $highest_bid = $highest_bid ?: 0.00;
             <strong>Location:</strong> <?= htmlspecialchars($vehicle['district']) ?>, <?= htmlspecialchars($vehicle['state']) ?>, <?= htmlspecialchars($vehicle['country']) ?>
         </p>
         
-        <div style="display:flex; justify-content:space-between; margin-bottom:30px; padding:20px; background:rgba(0,0,0,0.2); border:1px solid var(--panel-border); border-radius:8px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:30px; padding:20px; background:#f8fafc; border:1px solid var(--panel-border); border-radius:4px;">
             <div>
                 <p style="color:var(--text-secondary);">Base Price</p>
                 <h3 style="font-size:1.5rem;">₹<?= number_format($vehicle['base_price'], 2) ?></h3>
@@ -137,7 +137,7 @@ $highest_bid = $highest_bid ?: 0.00;
                     <strong><?= $group_count ?></strong> members have joined. Requires > 5 to start bidding.
                 </div>
             <?php elseif($has_joined && $group_count <= 5): ?>
-                <div class="alert alert-info" style="text-align:center; padding:15px; margin-bottom:20px; background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.3); color:var(--text-primary); border-radius:8px;">
+                <div class="alert alert-info" style="text-align:center; padding:15px; margin-bottom:20px; background:#e0f2fe; border:1px solid #bae6fd; color:#0369a1; border-radius:4px;">
                     <strong>You joined!</strong> Waiting for more members. Currently <strong><?= $group_count ?></strong>/6 members joined.
                 </div>
                 <button class="btn" style="width:100%; cursor:not-allowed;" disabled>BIDDING LOCKED</button>
