@@ -53,7 +53,7 @@ while ($row = mysqli_fetch_assoc($bids_query)) {
         </thead>
         <tbody>
             <?php foreach($vehicles_data as $v): ?>
-                <tr style="<?= $v['is_final_winner'] ? 'background:rgba(0, 200, 150, 0.2);' : '' ?>">
+                <tr style="<?= $v['is_final_winner'] ? 'background:#e6f4ea;' : '' ?>">
                     <td><?= htmlspecialchars($v['vehicle_name']) ?></td>
                     <td style="font-weight:bold;">$<?= number_format($v['my_highest_bid'], 2) ?></td>
                     <td>$<?= number_format($v['global_highest'], 2) ?></td>

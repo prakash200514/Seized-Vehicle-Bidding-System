@@ -29,7 +29,7 @@ $vehicles = mysqli_query($conn, "SELECT * FROM vehicles WHERE status IN ('active
                     <?php if($v['status'] == 'active'): ?>
                         <p style="margin-top:15px;"><span class="badge bg-success">ACTIVE</span></p>
                     <?php else: ?>
-                        <p style="margin-top:15px;"><span class="badge" style="background:rgba(255,255,255,0.05); color:var(--text-secondary); border: 1px solid rgba(255,255,255,0.1);">UPCOMING</span></p>
+                        <p style="margin-top:15px;"><span class="badge" style="background:#f1f3f4; color:var(--text-secondary); border: 1px solid #dadce0;">UPCOMING</span></p>
                     <?php endif; ?>
                 </div>
                 <a href="vehicle_details.php?id=<?= $v['vehicle_id'] ?>" class="btn btn-primary">View Details & Bid</a>

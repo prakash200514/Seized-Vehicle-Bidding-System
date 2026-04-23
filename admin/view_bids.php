@@ -59,7 +59,7 @@ $is_approved = $vehicle['status'] == 'approved';
             $rank = 1;
             while($b = mysqli_fetch_assoc($bids)): 
             ?>
-            <tr style="<?= ($rank == 1 && $is_closed && !$is_approved) ? 'background:rgba(100,255,218,0.1);' : ($is_approved && $rank == 1 ? 'background:rgba(0, 200, 150, 0.2);' : '') ?>">
+            <tr style="<?= ($rank == 1 && $is_closed && !$is_approved) ? 'background:#fdf6e3;' : ($is_approved && $rank == 1 ? 'background:#e6f4ea;' : '') ?>">
                 <td>#<?= $rank ?></td>
                 <td style="font-weight:bold; color:var(--accent-gold);">$<?= number_format($b['bid_amount'], 2) ?></td>
                 <td><?= htmlspecialchars($b['name']) ?></td>

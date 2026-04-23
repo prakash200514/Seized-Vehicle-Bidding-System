@@ -70,7 +70,7 @@ $highest_bid = $highest_bid ?: 0.00;
         <h2 style="font-size:2rem; color:var(--accent-gold);"><?= htmlspecialchars($vehicle['vehicle_name']) ?></h2>
         <p style="color:var(--text-secondary); margin-bottom:20px;">Model: <?= htmlspecialchars($vehicle['model']) ?> | Seized At: <?= htmlspecialchars($vehicle['seized_location']) ?></p>
         
-        <div style="display:flex; justify-content:space-between; margin-bottom:30px; padding:20px; background:rgba(0,0,0,0.2); border-radius:8px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:30px; padding:20px; background:#f8f9fa; border:1px solid var(--panel-border); border-radius:4px;">
             <div>
                 <p style="color:var(--text-secondary);">Base Price</p>
                 <h3 style="font-size:1.5rem;">$<?= number_format($vehicle['base_price'], 2) ?></h3>
