@@ -76,6 +76,18 @@ $sql = "CREATE TABLE IF NOT EXISTS auction_result (
 )";
 mysqli_query($conn, $sql);
 
+// Create Auction Groups table
+$sql = "CREATE TABLE IF NOT EXISTS auction_groups (
+    group_id INT AUTO_INCREMENT PRIMARY KEY,
+    vehicle_id INT NOT NULL,
+    user_id INT NOT NULL,
+    joined_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY(vehicle_id, user_id),
+    FOREIGN KEY (vehicle_id) REFERENCES vehicles(vehicle_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+)";
+mysqli_query($conn, $sql);
+
 // Seed Admin User
 $admin_pw = password_hash('admin123', PASSWORD_DEFAULT);
 $sql = "INSERT INTO users (name, email, password, role) 
