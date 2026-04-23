@@ -20,19 +20,19 @@ To ensure fair and competitive auctions, the system employs a unique group mecha
 - **Auction Lifecycle**: Set precise start and end times for each auction.
 - **Role Security**: Dedicated admin accounts have exclusive access to management features and cannot participate in public bidding.
 
-### 🧑‍💻 Bidder Experience
+ 🧑‍💻 Bidder Experience
 - **Detailed Vehicle Profiles**: Bidders can view comprehensive vehicle data, including real-time current highest bids.
 - **Countdown Timers**: Dynamic UI timers show exactly how much time is remaining on active auctions.
 - **My Bids Tracking**: A dedicated dashboard for users to track the status of their active bids.
 
-## 🛠️ Technology Stack
+🛠️ Technology Stack
 
 - **Frontend**: HTML5, CSS3 (Custom Official Theme), Vanilla JavaScript.
 - **Backend**: PHP 8+
 - **Database**: MySQL
 - **Typography**: Google Fonts (Inter)
 
-## 🚀 Installation & Setup
+ 🚀 Installation & Setup
 
 1. **Prerequisites**: Ensure you have a local server environment like XAMPP, WAMP, or MAMP installed with PHP and MySQL running.
 2. **Clone the Project**: Place the `bidding` project folder into your server's root directory (e.g., `C:\xampp\htdocs\bidding`).
